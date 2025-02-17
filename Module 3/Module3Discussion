@@ -1,0 +1,31 @@
+using System;
+
+public class Bunny
+{
+  public string Name;
+  public bool LikesCarrots;
+  public bool LikesHumans;
+  
+  public Bunny () {}
+  public Bunny (string n) 
+  {
+      this.Name = n;
+  }
+  
+  public Bunny (string n, bool LikesCarrots, bool LikesHumans)
+  {
+      this.Name = n;
+      this.LikesCarrots = LikesCarrots;
+      this.LikesHumans = LikesHumans;
+      Console.WriteLine($"{Name} is a bunny that:\nLikes Carrots: {LikesCarrots}\nLikes Humans: {LikesHumans}");
+  }
+  
+}
+
+class pubMain
+{
+    public static void Main()
+    {
+        Bunny Bob = new Bunny("Bob", false, true);
+    }
+}
