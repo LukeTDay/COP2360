@@ -95,7 +95,6 @@ while (true){
             Console.WriteLine("Dictionary has been sorted.\n");
             continue;
         case "6": 
-            endLoop = true;
             Console.WriteLine("Thank you for using this program.");
             break;
         default:
