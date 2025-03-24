@@ -36,6 +36,11 @@ while (true){
             //Remove an item from the list based on a key
             Console.WriteLine("Please enter the key of the item that you would like to remove:\nIf you would like to abort enter \"x\"");
             string? removeItem = Console.ReadLine();
+            if (removeItem.Equals("x"))
+            {
+                Console.WriteLine("Returning to beginning...\n\n");
+                continue;
+            }
             try
             {
                 groceryList.Remove(Convert.ToInt32(removeItem));
@@ -47,45 +52,78 @@ while (true){
                 continue;
 
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Unknown eror has occured");
+                Console.WriteLine($"{e.Message} caused an unknown error\n {e.Source} was the source of the error\n\n");
+            }
             continue;
         case "3":
             //Add a new key and item to the list
             Console.WriteLine("Please enter the key of the item that you would like to add:\nIf you would like to abort enter \"x\"");
-            string? addItemKey = Console.ReadLine();     
+            string? addItemKey = Console.ReadLine();
+            if (addItemKey.Equals("x"))
+            {
+                Console.WriteLine("Returning to beginning...\n\n");
+                continue;
+            }
             Console.WriteLine("Please enter the name of the item that you would like to add:\nIf you would like to abort enter \"x\"");
-            string? addItemName = Console.ReadLine();      
+            string? addItemName = Console.ReadLine(); 
+            if (addItemName.Equals("x"))
+            {
+                Console.WriteLine("Returning to beginning...\n\n");
+                continue;
+            }     
             try
             {
                 groceryList.Add(Convert.ToInt32(addItemKey),addItemName);
             } 
+            catch (FormatException e)
+            {
+                Console.WriteLine($"{e.Message} is an invalid input, please try again\n\n");
+                continue;
+            }
             catch (Exception e)
             {
-                Console.WriteLine($"{e.Message} is an invalid input, please try again");
-                Console.WriteLine();
-                continue;
+                Console.WriteLine("Unknown eror has occured");
+                Console.WriteLine($"{e.Message} caused an unknown error\n {e.Source} was the source of the error\n\n");
             }
             continue;
         case "4": 
             //Edit the list based on a key
             Console.WriteLine("Please enter the key of the item that you would like to edit:\nIf you would like to abort enter \"x\"");
             string? editItemKey = Console.ReadLine();
+            if (editItemKey.Equals("x"))
+            {
+                Console.WriteLine("Returning to beginning...\n\n");
+                continue;
+            }
             Console.WriteLine("Please enter the name of the item that you would like to edit:\nIf you would like to abort enter \"x\"");
             string? editItemname = Console.ReadLine();
-
+            if (editItemname.Equals("x"))
+            {
+                Console.WriteLine("Returning to beginning...\n\n");
+                continue;
+            }
             try
             {
                 if (!groceryList.ContainsKey(Convert.ToInt32(editItemKey)))
                 {
-                    Console.WriteLine($"There is not an item with a key of {editItemKey}. Please review the list before trying to edit again.");
+                    Console.WriteLine($"There is not an item with a key of {editItemKey}. Please review the list before trying to edit again.\n\n");
                     Console.WriteLine();
                     continue;
                 }
                 groceryList[Convert.ToInt32(editItemKey)] = editItemname;
             }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"{e.Message} is not entered correctly, please only used integers for keys and strings for values...\n\n");
+
+            }
             catch (Exception e)
             {
-                Console.WriteLine($"{e.Message} caused an unknown error...");
-
+                Console.WriteLine("Unknown eror has occured");
+                Console.WriteLine($"{e.Message} caused an unknown error\n {e.Source} was the source of the error\n\n");
             }
             continue;
         case "5":
