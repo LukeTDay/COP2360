@@ -41,13 +41,14 @@ foreach (subContractor x in subContractors)
 {
     Console.WriteLine($"\nHow long did {x.getName()} work for this week?");
     int hoursWorked = int.Parse(Console.ReadLine());
-    Console.WriteLine($"\n{x.getName()} has an employee id of {x.getNumber()}.\nThey were hired on {x.getStartDate()} and currently is being paid {x.getHourlyPay()}$ an hour\nIf {x.getName()} worked for {hoursWorked} hours, he would be owed {x.calcPay(hoursWorked)}$");
+    Console.WriteLine($"\n{x.getName()} has an employee id of {x.getNumber()}.\nThey were hired on {x.getStartDate()}" +
+        $" and currently is being paid {x.getHourlyPay()}$ an hour\nIf {x.getName()} worked for {hoursWorked} hours, he would be owed {x.calcPay(hoursWorked)}$");
 }
 public class Contractor
 {
     private string name;
     private int number;
-    private DateTime startDate;
+    protected DateOnly startDate;
     public Contractor()
     {
         this.name = "Unknown Name";
@@ -58,7 +59,7 @@ public class Contractor
     {
         this.name = name;
         this.number = number;
-        this.startDate = new DateTime(startYear, startMonth, startDay);
+        this.startDate = new DateOnly(startYear, startMonth, startDay);
     }
     public string getName()
     {
@@ -79,10 +80,10 @@ public class Contractor
     }
     public void setStartDate(int startYear, int startMonth, int startDay)
     {
-        this.startDate = new DateTime(startYear, startMonth, startDay);
+        this.startDate = new DateOnly(startYear, startMonth, startDay);
         return;
     }
-    public DateTime getStartDate()
+    public DateOnly getStartDate()
     {
         return this.startDate;
     }
