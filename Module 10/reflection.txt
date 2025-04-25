@@ -1,0 +1,11 @@
+In this project one of the things that gave me the most trouble was designing a way to store the time. At first I thought that I might be able to store the time in plain text.
+By asking the user to input something like 01/01/1995.
+
+I decided againts this because it might lead to differences due to how people write dates. This can be seen because some people use 
+MM/DD/YR while others use DD/MM/YR. I dont think it would make sense to do through the effort of determining the format that the person was using.
+
+To Avoid this I decided that I would ask them specifically for the month day and year specifically and store it on my own so that I can leave as little control to the user as possible.
+This will hopefully make the program easier to use.
+
+If I had more time on this project I would include more input verification as well as error handeling inside each getter and setter module within the respective classes.
+This would prevent things like null answers 
